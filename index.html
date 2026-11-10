@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brian Hobbins — IT Automation & AI Solutions</title>
+<meta name="description" content="Brian Hobbins — IT Automation & AI Solutions Specialist. 20+ years of enterprise automation, now building with AI. Python, Claude/OpenAI APIs, SQL, systems and cloud.">
+<style>
+  :root{
+    --bg:#0e1118; --bg2:#141a26; --panel:#171e2c; --panel2:#1d2636; --line:#273044;
+    --text:#e9edf6; --muted:#97a3bd; --accent:#5b8cff; --accent2:#9b6bff;
+    --radius:14px; --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--bg); color:var(--text);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+  .accent{background:linear-gradient(120deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+
+  /* nav */
+  nav{position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+    background:rgba(14,17,24,.72); border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:62px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
+  .mono{width:34px; height:34px; border-radius:9px; display:grid; place-items:center; font-weight:800;
+    background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff}
+  .navlinks{display:flex; gap:24px}
+  .navlinks a{color:var(--muted); text-decoration:none; font-size:14px; font-weight:550}
+  .navlinks a:hover{color:var(--text)}
+  @media(max-width:680px){ .navlinks{display:none} }
+
+  /* hero */
+  header.hero{position:relative; overflow:hidden;
+    background:radial-gradient(900px 440px at 75% -12%, #1d2a4d 0%, transparent 60%),
+               radial-gradient(700px 400px at 5% 0%, #241c44 0%, transparent 55%)}
+  .hero .wrap{padding:84px 24px 72px}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px; padding:6px 13px; margin-bottom:22px}
+  .dot{width:8px; height:8px; border-radius:50%; background:#3ddc84; box-shadow:0 0 8px #3ddc84}
+  h1{font-size:clamp(34px,6vw,58px); line-height:1.05; margin:0 0 16px; letter-spacing:-.5px}
+  .tagline{font-size:clamp(17px,2.4vw,21px); color:var(--muted); max-width:640px; margin:0 0 30px}
+  .tagline strong{color:var(--text); font-weight:600}
+  .cta{display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:11px;
+    font-weight:600; font-size:15px; text-decoration:none; cursor:pointer; border:1px solid transparent}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff}
+  .btn.ghost{border-color:var(--line); color:var(--text); background:var(--panel)}
+  .btn.ghost:hover{border-color:var(--accent)}
+
+  /* sections */
+  section{padding:66px 0; border-top:1px solid var(--line)}
+  .kicker{font-size:13px; text-transform:uppercase; letter-spacing:1.4px; color:var(--accent); font-weight:700; margin:0 0 10px}
+  h2{font-size:clamp(24px,4vw,32px); margin:0 0 20px; letter-spacing:-.3px}
+  p.lead{color:#cdd5e6; max-width:760px; font-size:17px}
+
+  /* skills */
+  .skillgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:8px}
+  @media(max-width:680px){ .skillgrid{grid-template-columns:1fr} }
+  .skillcard{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:20px}
+  .skillcard h3{margin:0 0 12px; font-size:16px; display:flex; align-items:center; gap:9px}
+  .skillcard h3 .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:15px;
+    background:var(--panel2); border:1px solid var(--line)}
+  .chips{display:flex; flex-wrap:wrap; gap:7px}
+  .chip{font-size:13px; color:#c7d0e4; background:var(--panel2); border:1px solid var(--line);
+    border-radius:999px; padding:4px 11px}
+
+  /* projects */
+  .project{background:linear-gradient(180deg,var(--panel),#141b29); border:1px solid var(--line);
+    border-radius:16px; padding:26px; position:relative; overflow:hidden}
+  .project::before{content:""; position:absolute; inset:0 0 auto 0; height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .project .ptag{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.5px; text-transform:uppercase}
+  .project h3{font-size:22px; margin:8px 0 10px}
+  .project p{color:#cdd5e6; margin:0 0 16px}
+  .project .feats{display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; margin:0 0 18px; padding:0; list-style:none}
+  @media(max-width:620px){ .project .feats{grid-template-columns:1fr} }
+  .project .feats li{font-size:14px; color:#c7d0e4; padding-left:20px; position:relative}
+  .project .feats li::before{content:"▸"; color:var(--accent); position:absolute; left:0}
+  .stack{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px}
+  .stack .chip{background:rgba(91,140,255,.1); border-color:rgba(91,140,255,.28); color:#aec0ff}
+  .plinks{display:flex; gap:12px; flex-wrap:wrap}
+  .plink{font-size:14px; font-weight:600; text-decoration:none; color:var(--text);
+    border:1px solid var(--line); border-radius:9px; padding:8px 14px}
+  .plink:hover{border-color:var(--accent)}
+  .moreproj{margin-top:16px; color:var(--muted); font-size:14px}
+
+  /* timeline */
+  .timeline{position:relative; margin-top:10px; padding-left:26px}
+  .timeline::before{content:""; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--line)}
+  .job{position:relative; padding-bottom:26px}
+  .job:last-child{padding-bottom:0}
+  .job::before{content:""; position:absolute; left:-26px; top:5px; width:14px; height:14px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent)}
+  .job .role{font-weight:700; font-size:16px}
+  .job .co{color:var(--accent); font-weight:600}
+  .job .when{font-size:13px; color:var(--muted); font-family:ui-monospace,Menlo,monospace; margin:2px 0 6px}
+  .job .desc{color:#c0c9de; font-size:15px}
+
+  /* contact */
+  .contactgrid{display:flex; flex-wrap:wrap; gap:14px; margin-top:8px}
+  .contactcard{flex:1; min-width:210px; background:var(--panel); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px 20px; text-decoration:none; color:var(--text)}
+  .contactcard:hover{border-color:var(--accent)}
+  .contactcard .k{font-size:12px; text-transform:uppercase; letter-spacing:.7px; color:var(--muted)}
+  .contactcard .v{font-size:16px; font-weight:600; margin-top:4px; word-break:break-word}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; color:var(--muted); font-size:14px}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="mono">BH</span> Brian Hobbins</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Open to remote roles</span>
+    <h1>Automation engineer,<br>now building with <span class="accent">AI</span>.</h1>
+    <p class="tagline">I'm <strong>Brian Hobbins</strong> — 20+ years turning complex, manual IT processes into reliable, scripted systems at enterprise scale. Today I pair that foundation with modern AI tooling to ship practical automation end to end.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn ghost" href="https://github.com/brian-hobbins" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn ghost" href="Brian-Hobbins-Resume.pdf" target="_blank" rel="noopener">Résumé ↓</a>
+      <a class="btn ghost" href="mailto:brian.hobbins@proton.me">Email me</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <p class="kicker">About</p>
+    <h2>Enterprise depth meets applied AI</h2>
+    <p class="lead">For two decades I've engineered and administered automation at serious scale — fleets of <strong>68,000+ PCs</strong> and <strong>17,000+ servers</strong>, large-scale software deployments, databases, and the scripts that hold it all together. For the past several years I've focused on applied AI: building Python tools, API integrations, custom GPTs, and agent/chatbot workflows that save real time. The combination — a veteran automation engineer who builds with AI — is where I do my best work.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <p class="kicker">Skills</p>
+    <h2>What I work with</h2>
+    <div class="skillgrid">
+      <div class="skillcard">
+        <h3><span class="ic">🤖</span> AI &amp; Automation</h3>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Claude / Anthropic API</span><span class="chip">OpenAI API</span>
+          <span class="chip">Custom GPTs</span><span class="chip">Prompt engineering</span><span class="chip">Agent &amp; chatbot workflows</span>
+          <span class="chip">PowerShell</span><span class="chip">Bash</span><span class="chip">VBScript / WMI</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3><span class="ic">🖥️</span> Systems &amp; Cloud</h3>
+        <div class="chips">
+          <span class="chip">Windows / Server</span><span class="chip">Linux</span><span class="chip">BSD</span>
+          <span class="chip">AWS (EC2)</span><span class="chip">Active Directory</span><span class="chip">IIS</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3><span class="ic">🗄️</span> Data</h3>
+        <div class="chips">
+          <span class="chip">MS SQL Server</span><span class="chip">MySQL</span><span class="chip">SQLite</span>
+          <span class="chip">SQL / TQL reporting</span><span class="chip">ETL &amp; data loads</span><span class="chip">Schema design</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3><span class="ic">🛠️</span> Enterprise &amp; Web</h3>
+        <div class="chips">
+          <span class="chip">Altiris / CMDB</span><span class="chip">HP OpenView</span><span class="chip">ILMT</span>
+          <span class="chip">C#</span><span class="chip">Node.js</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">WordPress</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap reveal">
+    <p class="kicker">Projects</p>
+    <h2>Featured work</h2>
+    <div class="project">
+      <span class="ptag">AI · Full-stack</span>
+      <h3>AI Support-Ticket Triage Agent</h3>
+      <p>A full web app that turns a raw IT support ticket into a structured, routable, SLA-tagged record with a drafted reply — then manages the whole ticket lifecycle. It encodes real service-desk judgment (e.g. anything resembling phishing auto-escalates to Security).</p>
+      <ul class="feats">
+        <li>AI triage: priority, routing, sentiment, drafted reply</li>
+        <li>Accounts &amp; login (PBKDF2 hashing, per-user data)</li>
+        <li>SQLite persistence with full activity history</li>
+        <li>Search, filters, replies, close/reopen, dashboard</li>
+        <li>Swappable LLM backend (Claude CLI or API)</li>
+        <li>Zero external dependencies — stdlib Python + vanilla JS</li>
+      </ul>
+      <div class="stack">
+        <span class="chip">Python</span><span class="chip">SQLite</span><span class="chip">Claude API</span>
+        <span class="chip">Vanilla JS</span><span class="chip">HTTP server</span>
+      </div>
+      <div class="plinks">
+        <a class="plink" href="https://github.com/brian-hobbins/ticket-triage-agent" target="_blank" rel="noopener">Source on GitHub ↗</a>
+      </div>
+    </div>
+    <p class="moreproj">More projects coming soon — currently building out an AI automation portfolio for small businesses.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <p class="kicker">Experience</p>
+    <h2>Where I've worked</h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="role">AI Automation Developer &amp; IT Consultant · <span class="co">Independent</span></div>
+        <div class="when">2012 – Present · Remote</div>
+        <div class="desc">Build AI tools, custom GPTs, chatbots, and workflow automations for small businesses using Python and the Claude/OpenAI APIs; provision AWS/WordPress and design databases.</div>
+      </div>
+      <div class="job">
+        <div class="role">Data Integrity Analyst · <span class="co">Estée Lauder</span></div>
+        <div class="when">2020</div>
+        <div class="desc">Audited data-driven devices across QA labs and assembly lines; authored data-handling standards and enforced controls on a sensitive production database.</div>
+      </div>
+      <div class="job">
+        <div class="role">Technical Support Specialist · <span class="co">Asteris, Inc.</span></div>
+        <div class="when">2018 – 2019</div>
+        <div class="desc">Triaged application issues to SLA in a high-volume queue; wrote SQL to isolate bugs and scripts to parse large data sets.</div>
+      </div>
+      <div class="job">
+        <div class="role">Application Analyst · <span class="co">Cognizant Technology Solutions</span></div>
+        <div class="when">2018</div>
+        <div class="desc">Triaged healthcare-application issues, performed claims data loads, and authored diagnostic documentation.</div>
+      </div>
+      <div class="job">
+        <div class="role">Software Systems Specialist II &amp; III (Team Lead) · <span class="co">Bank of New York Mellon</span></div>
+        <div class="when">2008 – 2012</div>
+        <div class="desc">Engineered enterprise asset-management platforms (Altiris, HP CMDB/OpenView) across 68,000+ PCs and 17,000+ servers; led a large-scale ILMT rollout and built VBScript/SQL automation integrated with Active Directory.</div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:22px; font-size:15px; color:var(--muted)">Associate in Specialized Technology, Computer &amp; Networking Systems — Pittsburgh Technical Institute (GPA 3.81).</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap reveal">
+    <p class="kicker">Contact</p>
+    <h2>Let's talk</h2>
+    <p class="lead">Open to remote roles in AI automation, AI engineering, and IT automation — and to freelance projects. The fastest way to reach me:</p>
+    <div class="contactgrid">
+      <a class="contactcard" href="mailto:brian.hobbins@proton.me">
+        <div class="k">Email</div><div class="v">brian.hobbins@proton.me</div>
+      </a>
+      <a class="contactcard" href="https://github.com/brian-hobbins" target="_blank" rel="noopener">
+        <div class="k">GitHub</div><div class="v">github.com/brian-hobbins</div>
+      </a>
+      <div class="contactcard" style="cursor:default">
+        <div class="k">Location</div><div class="v">Salisbury, PA · Remote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Brian Hobbins</span>
+    <span>Built from scratch — HTML, CSS &amp; JavaScript</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // reveal-on-scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+</script>
+</body>
+</html>
